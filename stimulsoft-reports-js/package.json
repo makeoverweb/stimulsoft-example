@@ -1,0 +1,63 @@
+{
+    "name": "stimulsoft-reports-js",
+    "version": "2020.4.2",
+    "description": "Stimulsoft Reports.JS is a reporting tool for Node.js",
+    "main": "index.js",
+    "types": "Scripts/stimulsoft.reports.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stimulsoft/Reports.JS.git"
+    },
+    "keywords": [
+        "Stimulsoft",
+        "Reports",
+        "Stimulsoft.Reports.JS",
+        "Reporting tool"
+    ],
+    "dependencies": {
+        "jimp": "^0.2.28",
+        "mssql": "^6.2.1",
+        "mysql": "^2.15.0",
+        "pg": "^4.5.1",
+        "sync-request": "^3.0.1",
+        "node-firebird": "^0.8.4",
+        "node-machine-id": "^1.1.12",
+        "xmldoc": "^1.1.0"
+    },
+    "files": [
+        "THIRD-PARTY.md",
+        "LICENSE.md",
+        "package.json",
+        "README.md",
+        "index.js",
+        "Scripts/*",
+        "Css/*"
+    ],
+    "author": {
+        "name": "Stimulsoft",
+        "url": "http://www.stimulsoft.com"
+    },
+    "maintainers": [
+        {
+            "name": "Stimulsoft",
+            "email": "info@stimulsoft.com",
+            "url": "http://www.stimulsoft.com"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "Stimulsoft",
+            "email": "info@stimulsoft.com",
+            "url": "http://www.stimulsoft.com"
+        }
+    ],
+    "license": "Closed Source",
+    "bugs": {
+        "url": "https://github.com/stimulsoft/Reports.JS/issues"
+    },
+    "homepage": "https://github.com/stimulsoft/Reports.JS#readme",
+    "devDependencies": {}
+}

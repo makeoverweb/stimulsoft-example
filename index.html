@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>The main app</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href="stimulsoft-reports-js/Css/stimulsoft.viewer.office2013.whiteblue.css">
+    <script src="stimulsoft-dashboards-js/Scripts/stimulsoft.dashboards.pack.js"></script>
+    <script src="stimulsoft-dashboards-js/Scripts/stimulsoft.reports.pack.js"></script>
+    <script src="stimulsoft-dashboards-js/Scripts/stimulsoft.viewer.pack.js"></script>
+</head>
+<body style="margin:0px;padding:0px;overflow:hidden">
+<div id='report-viewer'>test</div>
+<script type="module">
+    import { data } from './data.js'
+    import { mrt } from './report.js'
+
+    const options = new window.Stimulsoft.Viewer.StiViewerOptions()
+    // options.toolbar.visible = false
+    const viewer = new window.Stimulsoft.Viewer.StiViewer(options, "StiViewer", false)
+    window.Stimulsoft.Base.StiLicense.key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHmx1pteFDB1IEnVZAP+51GGMdLY5eMv5fRHz+MADW6B4byt6wEWWfU5OQu2dWxB1+Mud1LRsTkCT9g+X9Ygl4jrjrmBD2xMmF2KLTsVR41lcXFtopLNkRuetI1A010YTsEb1cVucPsrOj2W8iLOlWJwEDF3cpP9fS4yVnIpjiBxxDCeHQqDRDw15OZhxhlNo7qHb3m9tB53WZzcipZ0x+hCg13P9cXs2OosrPZt6OUBaHUKa/zShcmHFAhvmRJiKDi88AllhSKkpym4EMn3CdVrbvpS0NMBbgiAArguo9GB3E/fFa/SEfXW2LnvWSe2oWsxsALalyKLIbqONgmyrlsWrd6bDB0dywtNaufF1TmY1eHH/o+2ZX12fpdryyskSrk31PnGooMv7fGVwCKGwq5if+CplZ6RWQdF+LYhibBjslUx8sVAHJxo4n3EdyFuz180BcuMCu2YWog/Zwj11+qe2Uawbz2sjnCZRe+9EKpvimmalxKh6+c+AKkBFUUAFZW3t93T5NY1yMYygA/Z6t+xUcUnpjBRuf8XjbiqeLnBfbljJ6E/LdQF1PF93RkT/Lw/nvhKxi1QUF78itDBVC8zguyow3U9zXcvJR5k5ugYMkQ4QSGAKVFZ9P30azsKFLnizdd8Uz39zoj5G4ANKFkOKila/3rO7knO5mBQjZqgBg=="
+    const report = new window.Stimulsoft.Report.StiReport()
+    const dataSet = new window.Stimulsoft.System.Data.DataSet("suek_rpo_object_readiness_report")
+    // если не почистить то не будет обновляться новыми данными
+    delete mrt.Dictionary.Resources
+    delete mrt.Dictionary.Databases[0].PathData
+    dataSet.readJson(data)
+    report.regData(dataSet.dataSetName, "", dataSet)
+    report.dictionary.synchronize()
+    report.load(mrt)
+    viewer.report = report
+    viewer.renderHtml('report-viewer')
+</script>
+</body>
+</html>
